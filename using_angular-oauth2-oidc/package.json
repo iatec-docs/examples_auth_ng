@@ -1,7 +1,7 @@
 {
-  "name": "angular-quickstart",
+  "name": "iatec-example-auth-angular-oauth2-oidc",
   "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "IATec Authentication using Angular 4 and angular-oauth2-oidc",
   "scripts": {
     "build": "tsc -p src/",
     "build:watch": "tsc -p src/ -w",
