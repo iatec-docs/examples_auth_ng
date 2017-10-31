@@ -5,4 +5,5 @@ export const authConfig: AuthConfig = {
   redirectUri: window.location.origin + '/callback',
   clientId: 'democlient_implicitflow',
   scope: 'openid profile email demoapi',
+  postLogoutRedirectUri: window.location.origin + '/postlogout',
 }

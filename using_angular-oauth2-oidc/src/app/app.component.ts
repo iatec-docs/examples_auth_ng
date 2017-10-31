@@ -5,10 +5,9 @@ import { authConfig } from './auth.config';
 
 @Component({
   selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>`,
+  templateUrl: './app.component.html'
 })
-export class AppComponent  { 
-  name = 'Angular';
+export class AppComponent {
   constructor(private oauthService: OAuthService) {
     this.configureWithNewConfigApi();
   }
@@ -17,4 +16,19 @@ export class AppComponent  {
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
+
+  public login() {
+    this.oauthService.initImplicitFlow();
+  }
+
+  public logoff() {
+    this.oauthService.logOut();
+  }
+
+  public get name() {
+    let claims: any = this.oauthService.getIdentityClaims();
+    if (!claims) return 'Anonymous User';
+    return claims.name;
+  }
+
 }
