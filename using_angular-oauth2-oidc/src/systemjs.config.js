@@ -25,7 +25,8 @@
 
       // other libraries
       'rxjs':                      'npm:rxjs',
-      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
+      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
+      'angular-oauth2-oidc':       'npm:angular-oauth2-oidc',
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -39,6 +40,19 @@
       },
       rxjs: {
         defaultExtension: 'js'
+      },
+      'angular-oauth2-oidc': {
+        main: 'angular-oauth2-oidc.umd.js',
+        format: 'cjs',
+        defaultExtension: 'js',
+        map: {
+          'jsrsasign': '/node_modules/jsrsasign/lib/jsrsasign.js',
+        },
+        meta: {
+            'angular-oauth2-oidc': {
+                deps: ['require','jsrsasign']
+            },
+        }
       }
     }
   });
